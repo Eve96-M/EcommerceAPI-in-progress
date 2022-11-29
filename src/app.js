@@ -4,7 +4,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const handleError = require("./middlewares/error.middleware");
 const initModels = require("./models/initModels");
-const { userRoutes, authRoutes, productRoutes } = require("./routes");
+const { userRoutes, authRoutes, productRoutes, cartRoutes } = require("./routes");
 const app = express();
 
 app.use(express.json());
@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", productRoutes);
+app.use("/api/v1", cartRoutes);
 
 app.use(handleError);
 

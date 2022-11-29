@@ -28,11 +28,7 @@ const products = db.define("products",{
     userId:{
         type: DataTypes.INTEGER,
         allowNull: false,
-        field:"user_id",
-        references:{
-            model:users,
-            key:"id"
-        }
+        field:"user_id"
     }
 })
 

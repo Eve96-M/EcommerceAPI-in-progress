@@ -17,11 +17,11 @@ class UserServices {
         attributes: ["name"],
         include: {
           model: Order,
-          as: "Order",
-          attributes: ["totalPrice"],
+          as: "order",
+          attributes: ["totalPrice","status"],
           include: {
             model: ProductsInOrder,
-            as: "Items",
+            as: "productOrder",
             attributes: ["productId", "quantity", "price"],
           }
 
@@ -40,18 +40,43 @@ class UserServices {
         attributes: ["name"],
         include: {
           model: Cart,
-          as: "Cart",
-          attributes: ["totalPrice"],
+          as: "cart",
+          attributes: ["totalPrice", "status"],
           include: {
             model: ProductsInCart,
-            as: "Product",
-            attributes: ["productId", "quantity", "price"],
+            as: "products",
+            attributes: ["productId", "quantity", "price","status"],
           }
         }
       })
       return result
     } catch (error) {
       throw (error)
+    }
+  }
+
+  static async addToCart(newItem){
+    try {
+      const result = await ProductsInCart.create(newItem);
+      return result;
+    } catch (error) {
+      throw(error);
+    }
+  }
+
+  static async purchaseCart(){
+    try {
+      const result = await ProductsInCart.update({status: "purchased"}, {
+        where:{
+          status: "in queue"
+        }
+      });
+      const cart = await Cart.update({status:"purchased"},{where:{
+        status:"Pending"
+      }})
+      return result, cart;
+    } catch (error) {
+      throw(error);
     }
   }
 }

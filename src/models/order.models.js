@@ -17,11 +17,11 @@ const order = db.define("order", {
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: "user_id",
-        references: {
-            model: users,
-            key: "id"
-        }
+        field: "user_id"
+    },
+    status: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 })
 

@@ -13,20 +13,12 @@ const productsInOrder = db.define("productsInOrder", {
     orderId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: "order_id",
-        references: {
-            model: order,
-            key: "id"
-        }
+        field: "order_id"
     },
     productId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: "product_id",
-        references: {
-            model: products,
-            key: "id"
-        }
+        field: "product_id"
     },
     quantity: {
         type: DataTypes.INTEGER,

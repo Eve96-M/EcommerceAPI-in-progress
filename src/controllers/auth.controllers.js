@@ -6,8 +6,8 @@ const userLogin = async (req, res, next) => {
       const credentials = req.body;
       const result = await AuthServices.authenticate(credentials);
       if (result) {
-        const { name, email, id} = result.result;
-        const user = { name, email, id};
+        const { email, password, id} = result.result;
+        const user = { email, password, id};
         const token = AuthServices.genToken(user);
         user.token = token;
         res.json({ ...user });

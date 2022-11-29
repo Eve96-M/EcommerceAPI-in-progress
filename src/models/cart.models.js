@@ -13,16 +13,15 @@ const cart = db.define("cart",{
         type: DataTypes.INTEGER,
         allowNull: false,
         field:"user_id",
-        references:{
-            model:users,
-            key:"id"
-        }
     },
     totalPrice:{
         type:DataTypes.INTEGER,
         field:"total_price",
         allowNull:false
-    },
+    },status:{
+        type:DataTypes.STRING,
+        allowNull:false
+    }
 
 })
 

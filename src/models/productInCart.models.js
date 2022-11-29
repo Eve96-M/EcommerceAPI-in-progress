@@ -1,6 +1,4 @@
 const db = require("../utils/database");
-const products = require("./products.models");
-const cart = require("./cart.models");
 const { DataTypes } = require("sequelize");
 
 const productsInCart = db.define("productsInCart", {
@@ -14,19 +12,11 @@ const productsInCart = db.define("productsInCart", {
         type: DataTypes.INTEGER,
         allowNull: false,
         field: "cart_id",
-        references: {
-            model: cart,
-            key: "id"
-        }
     },
     productId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: "product_id",
-        references: {
-            model: products,
-            key: "id"
-        }
+        field: "product_id"
     },
     quantity: {
         type: DataTypes.INTEGER,
@@ -39,7 +29,7 @@ const productsInCart = db.define("productsInCart", {
     status: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
 
 })
 

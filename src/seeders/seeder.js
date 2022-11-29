@@ -20,31 +20,31 @@ const products = [
 ]
 
 const carts = [
-    {userId:1, totalPrice:0},
-    {userId:2, totalPrice:0},
-    {userId:3, totalPrice:0}
+    {userId:1, totalPrice:0, status:"Pending"},
+    {userId:2, totalPrice:0, status:"Pending"},
+    {userId:3, totalPrice:0, status:"Pending"}
 ]
 
 const order = [
-    {totalPrice:0, userId:1},
-    {totalPrice:0, userId:2},
-    {totalPrice:0, userId:3},
+    {totalPrice:0, userId:1,status:"Pending"},
+    {totalPrice:0, userId:2, status:"Pending"},
+    {totalPrice:0, userId:3, status:"Pending"},
 ]
 
 const pic = [
-    {cartId:1, productId:1, quantity:5, price:10, status:"in cart"},
-    {cartId:1, productId:2, quantity:3, price:6, status:"in cart"},
-    {cartId:2, productId:1, quantity:5, price:10, status:"in cart"},
-    {cartId:2, productId:4, quantity:2, price:3, status:"in cart"},
-    {cartId:3, productId:5, quantity:1, price:30, status:"in cart"},
+    {cartId:1, productId:1, quantity:5, price:10, status:"in queue"},
+    {cartId:1, productId:2, quantity:3, price:6, status:"in queue"},
+    {cartId:2, productId:1, quantity:5, price:10, status:"in queue"},
+    {cartId:2, productId:4, quantity:2, price:3, status:"in queue"},
+    {cartId:3, productId:5, quantity:1, price:30, status:"in queue"},
 ]
 
 const pio = [
-    {orderId:1, productId:1, quantity:5, price:10, status:"in cart"},
-    {orderId:1, productId:2, quantity:3, price:6, status:"in cart"},
-    {orderId:2, productId:1, quantity:5, price:10, status:"in cart"},
-    {orderId:2, productId:4, quantity:2, price:3, status:"in cart"},
-    {orderId:3, productId:5, quantity:1, price:30, status:"in cart"},
+    {orderId:1, productId:1, quantity:5, price:10, status:"Ordered"},
+    {orderId:1, productId:2, quantity:3, price:6, status:"Ordered"},
+    {orderId:2, productId:1, quantity:5, price:10, status:"Ordered"},
+    {orderId:2, productId:4, quantity:2, price:3, status:"Ordered"},
+    {orderId:3, productId:5, quantity:1, price:30, status:"Ordered"},
 ]
 
 db.sync({ force: true })
