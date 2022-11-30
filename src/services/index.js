@@ -6,5 +6,4 @@ module.exports = {
     UserServices,
     AuthServices,
     ProductServices,
-    CartServices
 };

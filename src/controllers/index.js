@@ -8,6 +8,5 @@ module.exports = { userRegister,
     getAllProducts, 
     userOrders, 
     userCart, 
-    createCart, 
     addProductToCart,
     purchaseCart };
