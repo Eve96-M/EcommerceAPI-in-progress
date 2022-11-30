@@ -1,26 +1,27 @@
 const db = require("../utils/database");
 const users = require("./users.models")
-const { DataTypes} = require("sequelize");
+const { DataTypes } = require("sequelize");
 
-const cart = db.define("cart",{
+const cart = db.define("cart", {
     id: {
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    userId:{
+    userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field:"user_id",
+        field: "user_id",
     },
-    totalPrice:{
-        type:DataTypes.INTEGER,
-        field:"total_price",
-        allowNull:false
-    },status:{
-        type:DataTypes.STRING,
-        allowNull:false
+    totalPrice: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: "total_price"
+    },
+    status: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 
 })

@@ -20,15 +20,15 @@ const products = [
 ]
 
 const carts = [
-    {userId:1, totalPrice:0, status:"Pending"},
-    {userId:2, totalPrice:0, status:"Pending"},
-    {userId:3, totalPrice:0, status:"Pending"}
+    {userId:1, totalPrice:0, status:"empty"},
+    {userId:2, totalPrice:0, status:"empty"},
+    {userId:3, totalPrice:0, status:"empty"}
 ]
 
 const order = [
-    {totalPrice:0, userId:1,status:"Pending"},
-    {totalPrice:0, userId:2, status:"Pending"},
-    {totalPrice:0, userId:3, status:"Pending"},
+    {totalPrice:0, userId:1,status:"empty"},
+    {totalPrice:0, userId:2, status:"empty"},
+    {totalPrice:0, userId:3, status:"empty"},
 ]
 
 const pic = [
@@ -53,18 +53,18 @@ db.sync({ force: true })
         users.forEach((user) => Users.create(user))
         setTimeout(() => {
             products.forEach((products) => Products.create(products));
-          }, 100);
-          setTimeout(() => {
-            carts.forEach((carts) => Cart.create(carts));
-          }, 200);
-          setTimeout(() => {
-            order.forEach((order) => Order.create(order));
           }, 300);
           setTimeout(() => {
-            pic.forEach((pic) => ProductsInCart.create(pic));
+            carts.forEach((carts) => Cart.create(carts));
           }, 400);
           setTimeout(() => {
-            pio.forEach((pio) => ProductsInOrder.create(pio));
+            order.forEach((order) => Order.create(order));
           }, 500);
+          setTimeout(() => {
+            pic.forEach((pic) => ProductsInCart.create(pic));
+          }, 600);
+          setTimeout(() => {
+            pio.forEach((pio) => ProductsInOrder.create(pio));
+          }, 600);
     })
     .catch((error) => console.log(error));

@@ -6,12 +6,12 @@ const router = Router();
 
 router.post("/users", userRegister);
 
-router.get("/users/:id/orders", userOrders)
+router.get("/users/:id/orders", userOrders);
 
-router.get("/users/:id/cart", userCart)
+router.get("/users/:id/cart", userCart);
 
-router.post("/users/:id/cart", addProductToCart)
+router.post("/users/:id/cart", addProductToCart);
 
-router.put("/users/:id/cart", purchaseCart)
+router.put("/users/:id/cart", purchaseCart);
 
 module.exports = router
